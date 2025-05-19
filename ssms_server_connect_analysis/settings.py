@@ -77,9 +77,12 @@ WSGI_APPLICATION = 'ssms_server_connect_analysis.wsgi.application'
 ##### here the SSMS Server connection that are connect odbc
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',  # local ORM data (users, processed results, etc.)
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # },
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',  # local ORM data (users, processed results, etc.)
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.dummy',  # we're not using Django ORM for SQL Server
     },
     'sqlserver': {
         'ENGINE': 'sql_server.pyodbc',
